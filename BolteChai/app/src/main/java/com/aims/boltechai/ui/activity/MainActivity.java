@@ -68,14 +68,13 @@ public class MainActivity extends AppCompatActivity implements HelpAdapter.HelpL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // configure Database
+        // configure Database (Active Android)
         Configuration.Builder config = new Configuration.Builder(this);
         config.addModelClasses(Category.class, Help.class);
         ActiveAndroid.initialize(config.create());
 
         // Category and items containing fragment
         activeFragment = new ActivityListFragment();
-
 
         // check the first time use and setup initial data for Database
         if (isFirstTime()) {
@@ -388,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements HelpAdapter.HelpL
     }
 
 
-    // controlling multipale layer
+    // controlling multiple layer
     public void moveToFragment(long id) {
         activeFragment = new ActivityListFragment();
         Bundle bundle = new Bundle();
@@ -659,7 +658,6 @@ public class MainActivity extends AppCompatActivity implements HelpAdapter.HelpL
     @Override
     public void onDeleteClicked(final String name) {
         restartActivity();
-
     }
 
     public String getLanguage() {
